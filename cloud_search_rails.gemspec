@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Langevin"]
   s.date = "2012-04-28"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Rails integration for CloudSearch"
   s.email = "dan.langevin@lifebooker.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.11"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Rails integration for CloudSearch"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cloud_search_rails"
   gem.homepage = "http://github.com/dlangevin/cloud_search_rails"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Rails integration for CloudSearch}
+  gem.description = %Q{Rails integration for CloudSearch}
   gem.email = "dan.langevin@lifebooker.com"
   gem.authors = ["Dan Langevin"]
   # dependencies defined in Gemfile
