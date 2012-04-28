@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "cloud_search_rails.gemspec",
     "lib/cloud_search_rails.rb",
     "lib/cloud_search_rails/connection.rb",
     "lib/cloud_search_rails/exceptions.rb",
