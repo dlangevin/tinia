@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'cloud_search_rails'
 require 'active_record'
+require 'mocha'
 
 require 'ruby-debug'
 Debugger.start
@@ -17,6 +18,8 @@ ActiveRecord::Base.establish_connection({
 })
 
 CloudSearchRails.activate_active_record!
+
+Mocha::Configuration.prevent(:stubbing_non_existent_method)
 
 RSpec.configure do |config|
   config.mock_with :mocha

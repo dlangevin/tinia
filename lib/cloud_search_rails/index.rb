@@ -35,6 +35,8 @@ module CloudSearchRails
           d.id = self.id
           d.lang = "en"
           d.version = self.updated_at.to_i
+          # class name
+          d.add_field("type", self.class.base_class.name)
           self.cloud_search_data.each_pair do |k,v|
             d.add_field(k.to_s, v.to_s)
           end

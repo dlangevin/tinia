@@ -4,6 +4,10 @@ require 'cloud_search_rails/exceptions'
 require 'cloud_search_rails/index'
 require 'cloud_search_rails/search'
 
+if defined?(Rails)
+  require 'cloud_search_rails/railtie'
+end
+
 module CloudSearchRails
 
   def self.connection(domain = "default")
@@ -35,7 +39,7 @@ module CloudSearchRails
 
       # ensure config is all set
       unless self.cloud_search_domain.present?
-        raise CloudSearchRails::MissingSearchDomain.new
+        raise CloudSearchRails::MissingSearchDomain.new(self)
       end
     end
 

@@ -8,10 +8,13 @@ describe CloudSearchRails::Index do
 
     conn.create_table(:mock_index_classes, :force => true) do |t|
       t.string(:name)
+      t.timestamps
     end
 
     conn.create_table(:mock_index_with_datas, :force => true) do |t|
       t.string(:name)
+      t.string(:type)
+      t.timestamps
     end
 
     MockIndexClass = Class.new(ActiveRecord::Base) do
@@ -22,7 +25,7 @@ describe CloudSearchRails::Index do
 
     MockIndexWithData = Class.new(ActiveRecord::Base) do
       indexed_with_cloud_search do |config|
-        config.cloud_search_domain = "connection-mock"
+        config.cloud_search_domain = "mock-index-with-data"
       end
     end
 
@@ -71,7 +74,7 @@ describe CloudSearchRails::Index do
     end
   end
 
-  context ".cloud_search_delete_document" do
+  context ".cloud_search_add_document" do
 
     let(:batch_method) do
       :cloud_search_add_document
@@ -96,6 +99,18 @@ describe CloudSearchRails::Index do
 
     it_should_behave_like("batching")
   end
+
+  context ".cloud_search_domain" do
+
+    it "should be an inheritable attribute" do
+      NewKlass = Class.new(MockIndexWithData)
+      NewKlass.cloud_search_domain.should eql(
+        MockIndexWithData.cloud_search_domain
+      )
+    end
+
+  end
+
 
   context ".cloud_search_reindex" do
 
@@ -148,6 +163,7 @@ describe CloudSearchRails::Index do
       doc.expects(:lang=).with("en")
       doc.expects(:version=).with(t.to_i)
       doc.expects(:add_field).with("key", "val")
+      doc.expects(:add_field).with("type", "MockIndexWithData")
       AWSCloudSearch::Document.stubs(:new => doc)
 
       mock_index_with_data = MockIndexWithData.new
