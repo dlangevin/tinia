@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "cloud_search_rails"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Langevin"]
-  s.date = "2012-04-28"
+  s.date = "2012-05-01"
   s.description = "Rails integration for CloudSearch"
   s.email = "dan.langevin@lifebooker.com"
   s.extra_rdoc_files = [
