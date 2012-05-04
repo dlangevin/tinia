@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "cloud_search_rails"
-  gem.homepage = "http://github.com/dlangevin/cloud_search_rails"
+  gem.name = "tinia"
+  gem.homepage = "http://github.com/dlangevin/tinia"
   gem.license = "MIT"
   gem.summary = %Q{Rails integration for CloudSearch}
   gem.description = %Q{Rails integration for CloudSearch}

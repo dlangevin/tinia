@@ -1,4 +1,4 @@
-module CloudSearchRails
+module Tinia
 
   module Search
 
@@ -13,7 +13,7 @@ module CloudSearchRails
             ]
           }
         }
-        named_scope :cloud_search_rails_scope, scope_def do 
+        named_scope :tinia_scope, scope_def do 
           include WillPaginateMethods
         end
       end
@@ -51,7 +51,7 @@ module CloudSearchRails
         response = self.cloud_search_response(args.first, opts)
         ids = response.hits.collect{|h| h["id"]}
 
-        proxy = self.cloud_search_rails_scope(ids)
+        proxy = self.tinia_scope(ids)
         proxy.per_page = opts[:per_page]    
         proxy.current_page = opts[:page] 
         proxy.total_entries = response.found  

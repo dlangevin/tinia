@@ -1,14 +1,14 @@
 require 'aws_cloud_search'
-require 'cloud_search_rails/connection'
-require 'cloud_search_rails/exceptions'
-require 'cloud_search_rails/index'
-require 'cloud_search_rails/search'
+require 'tinia/connection'
+require 'tinia/exceptions'
+require 'tinia/index'
+require 'tinia/search'
 
 if defined?(Rails)
-  require 'cloud_search_rails/railtie'
+  require 'tinia/railtie'
 end
 
-module CloudSearchRails
+module Tinia
 
   def self.connection(domain = "default")
     @connections ||= {}
@@ -17,7 +17,7 @@ module CloudSearchRails
 
   # activate for ActiveRecord
   def self.activate_active_record!
-    ::ActiveRecord::Base.send(:extend, CloudSearchRails::ActiveRecord)
+    ::ActiveRecord::Base.send(:extend, Tinia::ActiveRecord)
   end
 
   module ActiveRecord
@@ -25,9 +25,9 @@ module CloudSearchRails
     # activation method for an AR class
     def indexed_with_cloud_search(&block)
       mods = [
-        CloudSearchRails::Connection,
-        CloudSearchRails::Index,
-        CloudSearchRails::Search
+        Tinia::Connection,
+        Tinia::Index,
+        Tinia::Search
       ]
       mods.each do |mod|
         unless self.included_modules.include?(mod)
@@ -39,7 +39,7 @@ module CloudSearchRails
 
       # ensure config is all set
       unless self.cloud_search_domain.present?
-        raise CloudSearchRails::MissingSearchDomain.new(self)
+        raise Tinia::MissingSearchDomain.new(self)
       end
     end
 

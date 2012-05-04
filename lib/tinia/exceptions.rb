@@ -1,4 +1,4 @@
-module CloudSearchRails
+module Tinia
   class MissingSearchDomain < Exception
     # constructor
     def initialize(klass)

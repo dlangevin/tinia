@@ -1,18 +1,18 @@
 require "spec_helper"
 
-describe CloudSearchRails do
+describe Tinia do
   
   context "#connection" do
     
     it "should get an instance of connection" do
-      CloudSearchRails.connection.should be_instance_of(
+      Tinia.connection.should be_instance_of(
         AWSCloudSearch::CloudSearch
       )
     end
 
     it "should be able to configure its connection's domain" do
       AWSCloudSearch::CloudSearch.expects(:new).with("domain")
-      CloudSearchRails.connection("domain")
+      Tinia.connection("domain")
     end
   end
 
@@ -32,9 +32,9 @@ describe CloudSearchRails do
       end
 
       mods = [
-        CloudSearchRails::Connection,
-        CloudSearchRails::Index,
-        CloudSearchRails::Search
+        Tinia::Connection,
+        Tinia::Index,
+        Tinia::Search
       ]
       mods.each do |mod|
         Indexed.included_modules.should include mod

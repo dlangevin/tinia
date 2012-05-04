@@ -1,4 +1,4 @@
-module CloudSearchRails
+module Tinia
   module Index
 
     def self.included(klass)

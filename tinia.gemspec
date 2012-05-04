@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "cloud_search_rails"
+  s.name = "tinia"
   s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -26,21 +26,21 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "cloud_search_rails.gemspec",
-    "lib/cloud_search_rails.rb",
-    "lib/cloud_search_rails/connection.rb",
-    "lib/cloud_search_rails/exceptions.rb",
-    "lib/cloud_search_rails/index.rb",
-    "lib/cloud_search_rails/railtie.rb",
-    "lib/cloud_search_rails/search.rb",
+    "tinia.gemspec",
+    "lib/tinia.rb",
+    "lib/tinia/connection.rb",
+    "lib/tinia/exceptions.rb",
+    "lib/tinia/index.rb",
+    "lib/tinia/railtie.rb",
+    "lib/tinia/search.rb",
     "spec/acceptance/aws_spec.rb",
-    "spec/cloud_search_rails/connection_spec.rb",
-    "spec/cloud_search_rails/index_spec.rb",
-    "spec/cloud_search_rails/search_spec.rb",
-    "spec/cloud_search_rails_spec.rb",
+    "spec/tinia/connection_spec.rb",
+    "spec/tinia/index_spec.rb",
+    "spec/tinia/search_spec.rb",
+    "spec/tinia_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/dlangevin/cloud_search_rails"
+  s.homepage = "http://github.com/dlangevin/tinia"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.11"

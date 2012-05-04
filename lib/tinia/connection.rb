@@ -1,4 +1,4 @@
-module CloudSearchRails
+module Tinia
   module Connection
 
     def self.included(klass)
@@ -13,7 +13,7 @@ module CloudSearchRails
       # accessor for the cloud search connection
       def cloud_search_connection
         @cloud_search_connection ||= begin
-          CloudSearchRails.connection(
+          Tinia.connection(
             self.cloud_search_domain
           )
         end

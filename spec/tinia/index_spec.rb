@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CloudSearchRails::Index do
+describe Tinia::Index do
 
   before(:all) do
 

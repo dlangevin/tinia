@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CloudSearchRails::Connection do
+describe Tinia::Connection do
 
   before(:each) do
 
@@ -16,7 +16,7 @@ describe CloudSearchRails::Connection do
 
     it "should get a namespaced connection" do
       ConnectionMock.stubs(:cloud_search_domain => "connection-mock")
-      CloudSearchRails.expects(:connection).with("connection-mock")
+      Tinia.expects(:connection).with("connection-mock")
       ConnectionMock.cloud_search_connection
     end
 
@@ -38,7 +38,7 @@ describe CloudSearchRails::Connection do
         ErrorMock = Class.new(ActiveRecord::Base) do
           indexed_with_cloud_search
         end
-      }.should raise_error(CloudSearchRails::MissingSearchDomain)
+      }.should raise_error(Tinia::MissingSearchDomain)
     end
 
   end
