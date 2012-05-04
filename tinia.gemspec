@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tinia"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Langevin"]
-  s.date = "2012-05-01"
+  s.date = "2012-05-04"
   s.description = "Rails integration for CloudSearch"
   s.email = "dan.langevin@lifebooker.com"
   s.extra_rdoc_files = [
@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "tinia.gemspec",
     "lib/tinia.rb",
     "lib/tinia/connection.rb",
     "lib/tinia/exceptions.rb",
@@ -34,11 +33,12 @@ Gem::Specification.new do |s|
     "lib/tinia/railtie.rb",
     "lib/tinia/search.rb",
     "spec/acceptance/aws_spec.rb",
+    "spec/spec_helper.rb",
     "spec/tinia/connection_spec.rb",
     "spec/tinia/index_spec.rb",
     "spec/tinia/search_spec.rb",
     "spec/tinia_spec.rb",
-    "spec/spec_helper.rb"
+    "tinia.gemspec"
   ]
   s.homepage = "http://github.com/dlangevin/tinia"
   s.licenses = ["MIT"]
