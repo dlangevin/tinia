@@ -4,10 +4,6 @@ require 'tinia/exceptions'
 require 'tinia/index'
 require 'tinia/search'
 
-if defined?(Rails)
-  require 'tinia/railtie'
-end
-
 module Tinia
 
   def self.connection(domain = "default")
