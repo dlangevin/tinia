@@ -24,10 +24,20 @@ module Tinia
       
       attr_accessor :current_page, :per_page, :total_entries
 
+      # the next page number
+      def next_page
+        self.current_page + 1
+      end
+
       # calculated offset given the current page and the number
       # of entries per page
       def offset
-        (self.current_page - 1) * self.per_page
+        self.previous_page * self.per_page
+      end
+
+      # the previous page number
+      def previous_page
+        self.current_page - 1
       end
       
       # total number of pages  

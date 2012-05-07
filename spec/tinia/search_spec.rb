@@ -99,11 +99,29 @@ describe Tinia::Search do
 
     end
 
+    context "#next_page" do
+
+      it "should be one less than the current_page" do
+        proxy = MockClass.cloud_search("my query")
+        proxy.next_page.should eql 2
+      end
+
+    end
+
     context "#offset" do
 
       it "should be able to compute its offset" do
         proxy = MockClass.cloud_search("my query", :page => 5)
         proxy.offset.should eql(80)
+      end
+
+    end
+
+    context "#previous_page" do
+
+      it "should be one less than the current_page" do
+        proxy = MockClass.cloud_search("my query")
+        proxy.previous_page.should eql 0
       end
 
     end
