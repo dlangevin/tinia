@@ -86,8 +86,8 @@ module Tinia
           else
             req.bq = "(and '#{query}' type:'#{self.base_class.name}')" 
           end
-          req.size = opts[:per_page]
-          req.start = (opts[:page] - 1) * opts[:per_page]
+          req.size = opts[:per_page].to_i
+          req.start = (opts[:page].to_i - 1) * opts[:per_page].to_i
         end
       end
 
