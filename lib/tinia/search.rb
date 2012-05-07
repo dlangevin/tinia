@@ -41,11 +41,9 @@ module Tinia
       
       # return a scope with the subset of ids
       def cloud_search(*args)
-        opts = {
-          :page => 1,
-          :per_page => 20
-        }
+        opts = {:page => 1, :per_page => 20}
         opts = opts.merge(args.extract_options!)
+        opts[:page] ||= 1
         query = args.first
         
         response = self.cloud_search_response(args.first, opts)
@@ -72,6 +70,9 @@ module Tinia
         AWSCloudSearch::SearchRequest.new.tap do |req|
           if query.nil?
             req.bq = "type:'#{self.base_class.name}'"
+          # this is a rich query using Solr syntax of () or : or ''
+          elsif query =~ /[:\)\(']/
+            req.bq = "(and #{query} type:'#{self.base_class.name}')" 
           else
             req.bq = "(and '#{query}' type:'#{self.base_class.name}')" 
           end

@@ -62,10 +62,32 @@ describe Tinia::Search do
       proxy.offset.should eql(0)
     end
 
+    context "Rich Search" do
+      let(:search_request) do
+        AWSCloudSearch::SearchRequest.new.tap do |req|
+          req.expects(:bq=).with(
+            "(and (and 'x' other_field:'y') type:'MockClass')"
+          )
+        end
+      end
+
+      it "should allow for a complex query" do
+        proxy = MockClass.cloud_search("(and 'x' other_field:'y')")
+        proxy.proxy_options[:conditions].should eql(
+          ["mock_classes.id IN (?)", [1, 2]]
+        )
+      end
+    end
+
     context "#current_page" do
 
       it "should default to 1" do
         proxy = MockClass.cloud_search("my query")
+        proxy.current_page.should eql(1)
+      end
+
+      it "should set nil arguments to 1" do
+        proxy = MockClass.cloud_search("my query", :page => nil)
         proxy.current_page.should eql(1)
       end
 
