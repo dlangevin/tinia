@@ -60,8 +60,8 @@ module Tinia
         ids = response.hits.collect{|h| h["id"]}
 
         proxy = self.tinia_scope(ids)
-        proxy.per_page = opts[:per_page]    
-        proxy.current_page = opts[:page] 
+        proxy.per_page = opts[:per_page].to_i    
+        proxy.current_page = opts[:page].to_i
         proxy.total_entries = response.found  
         proxy
       end
