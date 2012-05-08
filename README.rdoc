@@ -2,20 +2,24 @@
 
 A Rails interface for Amazon CloudSearch
 
-Tinia allows you to easily index and search data using Amazon's hosted Solr service, CloudSearch.  Its basic
-workflow is that after_save we send data to CloudSearch and after_destroy we remove that data.
+Tinia allows you to easily index and search data using Amazon's hosted 
+A9 Search service, CloudSearch.  Its basic workflow is that after_save 
+we send data to CloudSearch and after_destroy we remove that data.
 
 == Installing tinia
+
+Tinia is tested and supported for Rails 2.3, 3.0, 3.1 and 3.2.  To get
+the correct version, use "~> MAJOR.MINOR.0" (e.g "~> 2.3.0" for Rails 2.3.x)
 
 In Rails 3
 
   # Gemfile
-  gem "tinia"
+  gem "tinia", "~> 3.2.0"
 
 In Rails 2
   
   # config/environment.rb
-  config.gem "tinia"
+  config.gem "tinia", "~> 2.3.0"
 
   # config/initializers/nimbus.rb
   Tinia.activate_active_record!
@@ -77,7 +81,7 @@ Searching is implemented as a named_scope with extensions to hold meta data abou
 
 === Pagination
 
-CloudSearch/Solr offers built-in pagination, which Tinia provides access to.  For example
+CloudSearch/A9 offers built-in pagination, which Tinia provides access to.  For example
 
   # default options
   res = User.cloud_search("Dan")
