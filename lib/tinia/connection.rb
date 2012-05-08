@@ -4,7 +4,7 @@ module Tinia
     def self.included(klass)
       klass.send(:extend, ClassMethods)
       klass.class_eval do
-        class_inheritable_accessor :cloud_search_domain
+        class_attribute :cloud_search_domain
       end
     end
 

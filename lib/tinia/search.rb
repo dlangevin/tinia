@@ -7,13 +7,9 @@ module Tinia
       klass.class_eval do 
         # lambda block for the scope
         scope_def = lambda{|*ids|
-          {
-            :conditions => [
-              "#{self.table_name}.#{self.primary_key} IN (?)", ids.flatten
-            ]
-          }
+          where("#{self.table_name}.#{self.primary_key} IN (?)", ids.flatten)
         }
-        named_scope :tinia_scope, scope_def do 
+        scope :tinia_scope, scope_def do 
           include WillPaginateMethods
         end
       end

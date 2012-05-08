@@ -4,7 +4,7 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem "aws_cloud_search"
-gem "rails", "~> 2.3"
+gem "rails", "~> 3.2"
 
 
 # Add dependencies to develop your gem here.
