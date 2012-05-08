@@ -11,7 +11,7 @@ describe Tinia::Index do
       t.timestamps
     end
 
-    conn.create_table(:mock_index_with_datas, :force => true) do |t|
+    conn.create_table(:mock_index_with_data, :force => true) do |t|
       t.string(:name)
       t.string(:type)
       t.timestamps
