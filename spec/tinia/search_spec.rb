@@ -15,8 +15,8 @@ describe Tinia::Search do
         config.cloud_search_domain = "mock-class"
       end
 
-      named_scope :name_like, lambda{|n|
-        {:conditions => ["name LIKE ?", n]}
+      scope :name_like, lambda{|n|
+        where("name LIKE ?", n)
       }
 
     end
@@ -51,8 +51,8 @@ describe Tinia::Search do
       an Arel-like object" do
 
       proxy = MockClass.cloud_search("my query")
-      proxy.proxy_options[:conditions].should eql(
-        ["mock_classes.id IN (?)", [1, 2]]
+      proxy.where_values.should eql(
+        ["mock_classes.id IN (1,2)"]
       )
     end
 
@@ -73,8 +73,8 @@ describe Tinia::Search do
 
       it "should allow for a complex query" do
         proxy = MockClass.cloud_search("(and 'x' other_field:'y')")
-        proxy.proxy_options[:conditions].should eql(
-          ["mock_classes.id IN (?)", [1, 2]]
+        proxy.where_values.should eql(
+          ["mock_classes.id IN (1,2)"]
         )
       end
     end
